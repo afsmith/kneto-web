@@ -1,0 +1,166 @@
+{% load pages_tags mezzanine_tags i18n future staticfiles %}
+
+
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+
+<head>
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+
+    {% ifinstalled mezzanine.blog %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+    {% endifinstalled %}
+
+   <!-- <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'> -->
+    <link href='http://fonts.googleapis.com/css?family=Allerta' rel='stylesheet' type='text/css'>
+    
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+    <link href="{% static "css/theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/bootstrap-responsive.css" %}" rel="stylesheet"> 
+  
+
+    {% block extra_css %}{% endblock %}
+    
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"</script>
+    <![endif]-->
+
+   
+   <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+   <script type="text/javascript" src="{% static "js/jquery.mobile.customized.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery-1.10.2.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/superfish.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.jcarousel.js" %}"></script>
+   <script type="text/javascript" src="{% static "js/myscript.js" %}"></script>  
+    {% block extra_js %} {% endblock %}
+   
+
+    {% block extra_head %}{% endblock %}
+
+</head>
+
+<body id="{% block body_id %}body{% endblock %}">
+ 
+    <!--header-->
+    <div class="header">
+        <div class="wrap">
+            <div class="navbar navbar_ clearfix ">
+                <div class="container">
+                    <div class="row">
+                        <div class="span4">
+                            <div class="logo"><a href="/"><img src="{% static "images/kneto_logo.png" alt="Kneto" %}" /></a></div>                        
+                        </div>
+                        <div class="span8">
+                            <div class="clear"></div>
+                            <nav id="main_menu">
+                                <div class="menu_wrap">
+                                   {% page_menu "pages/menus/dropdown.html" %}
+                                </div>
+                             </nav>                            
+                        </div>
+                    </div>                
+                </div>
+             </div>
+        </div>    
+    </div>
+    <!--//header-->    
+{% block all_content %}
+<!--page_container-->
+<div class="page_container">
+    <div class="breadcrumb">
+        <div class="wrap">
+            <div class="container">
+                <ul class="breadcrumb">
+                {% spaceless %}
+                {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
+                {% endspaceless %}
+                {% comment %}
+                <li class="active">{% block title %}{% endblock %}</li>
+                {% endcomment %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="wrap">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    {% block main %}{% endblock %}
+                </div>
+                 
+                <div class="span4">
+                    {% block right_panel %}{% include "blog/includes/filter_panel.html" %}{% endblock %}
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    
+
+
+<!--//page_container-->
+
+
+{% endblock %}
+  </div>
+    <!--footer-->
+    <div id="footer">
+        <div class="footer_bottom">
+            <div class="wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="span5">
+                            <div class="foot_logo"><a href="index.html"><img src="{% static "images/kneto_logo_grey.png" alt="" / %} "></a></div>    
+                            <div class="copyright">&copy; 2013 Kneto Oy. All Rights Reserved.</div>                        
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="foot_right_block">
+                            
+                                <div class="follow_us">
+                                    <ul>
+                                        <li><a rel="tooltip" href="#" title="Facebook" class="facebook">Facebook</a></li>
+                                        <li><a rel="tooltip" href="#" title="Twitter" class="twitter">Twitter</a></li>
+                                        <li><a rel="tooltip" href="#" title="Tumbrl" class="tumbrl">Tumbrl</a></li>
+                                        <li><a rel="tooltip" href="#" title="Vimeo" class="vimeo">Vimeo</a></li>
+                                        <li><a rel="tooltip" href="#" title="Delicious" class="delicious">Delicious</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clear"></div>
+                            
+                                <div class="span4">
+                                <div class="foot_menu">
+                                     {% page_menu "pages/menus/dropdown.html" %}
+                                </div>
+                                </div> 
+                            </div>                            
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//footer-->    
+
+
+<script type="text/javascript">
+        $(document).ready(function(){   
+            //Slider
+           $('.carousel').carousel('cycle', 'pause: hover')  
+ 
+    </script>
+
+
+{% include "includes/footer_scripts.html" %}
+
+</body>
+</html>

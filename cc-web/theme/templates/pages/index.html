@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load pages_tags mezzanine_tags i18n future staticfiles %}
+
+{% block all_content %}
+
+<!--page_container-->
+    <div class="page_container">
+
+ {% if page.homepage.slides.all %}
+<!--slider-->
+          <div id="ccCarousel" class="carousel slide">  
+            <!-- Carousel items -->  
+          <div class="carousel-inner">  
+             {% for slide in page.homepage.slides.all %}
+    
+            <div class="item{% if forloop.first %} active{% endif %}">
+
+            <img src="{{ MEDIA_URL }}{% thumbnail slide.image 1920 690 %}" ></div>  
+         {% endfor %}         
+  </div>  
+  <!-- Carousel nav -->  
+  <a class="carousel-control left" href="#ccCarousel" data-slide="prev"></a>  
+  <a class="carousel-control right" href="#ccCarousel" data-slide="next"></a>  
+</div>  
+</div>    
+<!--//slider-->
+{% endif %}                 
+        <!--planning-->
+        <div class="wrap planning">
+            <div class="container">
+                <div class="row">
+                   
+                        <div class="col-lg-4">
+                        <a href="#">
+                            <span class="link_title">More deals in less time</span>
+                            Nunc vel arcu arcu. Nulla mollis feugiat dui id tincidunt. Aenean ac lobortis elit.
+                        </a>
+                   
+                    </div>
+
+                   
+                        <div class="col-lg-4">
+                        <a href="#">
+                            <span class="link_title">Closing signals</span>
+                            Nunc vel arcu arcu. Nulla mollis feugiat dui id tincidunt. Aenean ac lobortis elit.
+                        </a>
+                   
+                    </div>
+                    
+                        <div class="col-lg-4">
+                        <a href="#">
+                            <span class="link_title">Timing is everything</span>
+                            Nunc vel arcu arcu. Nulla mollis feugiat dui id tincidunt. Aenean ac lobortis elit.
+                        </a>
+                  
+                    </div>
+                                     
+                </div>
+            </div>
+        </div>
+        <!--//planning-->
+        
+        <!--Welcome-->
+
+        <div class="wrap block">
+            <div class="container welcome_block">
+                <div class="welcome_line welcome_t"></div>
+               {% editable page.homepage.heading page.homepage.subheading %}
+                {{ page.homepage.heading }}
+        <span>{{ page.homepage.subheading }}</span>
+            {% endeditable %}
+               
+            </div>
+        </div>
+        
+
+                <div class="wrap yellow_box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                          
+                    </div> 
+                    <div class="col-lg-4">
+                        <h2 class="title">Sign up for the Beta!</h2>
+                         {{settings.SITE_TAGLINE}}    
+                    </div> 
+                    <div class="col-lg-4">
+                        <h2 class="title">Testimonials</h2>
+                        {{settings.SITE_TAGLINE}}     
+                    </div>
+                
+            </div>            
+        </div>
+        
+        <!--Latest news-->
+        
+        <!--Latest news-->
+        
+        <!--latest posts-->
+ 
+        <!--//latest posts--> 
+    </div>
+    <!--//page_container-->
+
+{% endblock %}
+
+
