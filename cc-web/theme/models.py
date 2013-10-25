@@ -4,6 +4,21 @@ from mezzanine.pages.models import Page, RichText, Orderable
 from mezzanine.core.fields import FileField
 from mezzanine.utils.models import upload_to
 
+
+class HomePageInc(models.Model):
+    """
+    model for the homepage form
+    """
+
+    form_name = models.CharField(max_length=100, default='NUL')
+    date = models.DateTimeField()
+    email = models.EmailField()
+
+    def __unicode__(self):
+        return self.name
+
+
+
 class HomePage(Page, RichText):
     '''
     A page representing the format of the home page
