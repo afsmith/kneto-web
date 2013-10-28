@@ -27,14 +27,16 @@
 <!--//slider-->
 {% endif %}                 
         <!--planning-->
+         {% editable page.homepage.calloutleft page.homepage.calloutcenter page.homepage.calloutright page.homepage.callout_title_left page.homepage.callout_title_center page.homepage.callout_title_right%}
         <div class="wrap planning">
             <div class="container">
                 <div class="row">
-                   
+               
                         <div class="col-sm-4">
+                     
                         <a href="#">
-                            <span class="link_title">More deals in less time</span>
-                            Nunc vel arcu arcu. Nulla mollis feugiat dui id tincidunt. Aenean ac lobortis elit.
+                            <span class="link_title">{{ page.homepage.callout_title_left }}</span>
+                                {{ page.homepage.calloutleft }}
                         </a>
                    
                     </div>
@@ -42,16 +44,16 @@
                    
                         <div class="col-sm-4">
                         <a href="#">
-                            <span class="link_title">Closing signals</span>
-                            Nunc vel arcu arcu. Nulla mollis feugiat dui id tincidunt. Aenean ac lobortis elit.
+                            <span class="link_title">{{ page.homepage.callout_title_center }}</span>
+                            {{ page.homepage.calloutcenter }}
                         </a>
                    
                     </div>
                     
                         <div class="col-sm-4">
                         <a href="#">
-                            <span class="link_title">Timing is everything</span>
-                            Nunc vel arcu arcu. Nulla mollis feugiat dui id tincidunt. Aenean ac lobortis elit.
+                            <span class="link_title">{{ page.homepage.callout_title_right }}</span>
+                            {{ page.homepage.calloutright }}
                         </a>
                   
                     </div>
@@ -59,6 +61,7 @@
                 </div>
             </div>
         </div>
+  {% endeditable %}
         <!--//planning-->
         
         <!--Welcome-->
@@ -80,30 +83,22 @@
     <div class="container wrap ">
             
                 <div class="row">
-                    <div class="span4 offset2">
+                    <div class="col-md-4 offset2">
                         <h3 class="title">Sign up for the Beta!</h3>
                          {{settings.SITE_TAGLINE}}    
                     </div> 
-                    <div class="span2">
+                    <div class="col-md-2">
                         <h3 class="title">Testimonials</h3>
                             
-                        {% if request.GET.sent %}
-    {% editable page.form.response %}
-    {{ page.form.response|richtext_filters|safe }}
-    {% endeditable %}
-{% else %}
-    {% with page.form as page_form %}
-    {% editable page_form.content %}
-    {{ page_form.content|richtext_filters|safe }}
-    {% endeditable %}
-    {% endwith %}
+                       
     <form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+
         {% fields_for form %}
         <div class="form-actions">
-            <input class="btn btn-primary btn-large" type="submit" value="{{ page.form.button_text }}">
+            <input class="btn btn-primary btn-large" type="submit" value="Submit">
         </div>
     </form>
-{% endif %}
+
                             
 
 

@@ -23,19 +23,31 @@ class HomePage(Page, RichText):
     '''
     A page representing the format of the home page
     '''
+    calloutleft = models.CharField(max_length=100,
+        help_text="Left side Callout", default="callout left")
+    callout_title_left = models.CharField(max_length=20,
+        help_text="Left side Callout title", default="callout title left")
+    calloutcenter = models.CharField(max_length=100,
+        help_text="Center Callout", default="callout center")
+    callout_title_center = models.CharField(max_length=20,
+        help_text="Center side Callout title", default="callout title center")
+    calloutright = models.CharField(max_length=100,
+        help_text="Right side Callout", default="callout right")
+    callout_title_right = models.CharField(max_length=20,
+        help_text="Right side Callout title", default="callout title right")
+
     heading = models.CharField(max_length=200,
         help_text="The heading under the icon blurbs")
     subheading = models.CharField(max_length=200,
         help_text="The subheading just below the heading")
     featured_works_heading = models.CharField(max_length=200,
         default="Featured Works")
-    featured_portfolio = models.ForeignKey("Portfolio", blank=True, null=True,
-        help_text="If selected items from this portfolio will be featured "
-                  "on the home page.")
+
     content_heading = models.CharField(max_length=200,
         default="About us!")
     latest_posts_heading = models.CharField(max_length=200,
         default="Latest Posts")
+    
 
     class Meta:
         verbose_name = _("Home page")

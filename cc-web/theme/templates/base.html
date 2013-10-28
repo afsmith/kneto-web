@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
     <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
     <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
     <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
 
@@ -18,11 +19,10 @@
     <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
     {% endifinstalled %}
 
-   <!-- <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'> -->
     <link href='http://fonts.googleapis.com/css?family=Allerta' rel='stylesheet' type='text/css'>
     
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
-    <link href="{% static "css/theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/theme.css" %}" rel="stylesheet"> 
     <link href="{% static "css/bootstrap-responsive.css" %}" rel="stylesheet"> 
   
 
@@ -38,9 +38,11 @@
     <script type="text/javascript" src="{% static "js/jquery.mobile.customized.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/jquery-1.10.2.min.js" %}"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
-    <script src="{% static "js/superfish.js" %}"></script>
     <script type="text/javascript" src="{% static "js/jquery.jcarousel.js" %}"></script>
     <script type="text/javascript" src="{% static "js/myscript.js" %}"></script>  
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNyGi1ikK5NwJwhE8Omh9WpO3ac8Mww_U&sensor=false">
+    </script>
     {% block extra_js %} {% endblock %}
    
 
@@ -53,13 +55,13 @@
     <!--header-->
     <div class="header">
         <div class="wrap">
-            <div class="navbar navbar_ clearfix ">
+            <div class="navbar navbar_ clearfix">
                 <div class="container">
                     <div class="row">
-                        <div class="span4">
+                        <div class="col-md-4">
                             <div class="logo"><a href="/"><img src="{% static "images/kneto_logo.png" alt="Kneto" %}" /></a></div>                        
                         </div>
-                        <div class="span8">
+                        <div class="col-md-8">
                             <div class="clear"></div>
                             <nav id="main_menu">
                                 <div class="menu_wrap">
@@ -79,38 +81,34 @@
     <div class="breadcrumb">
         <div class="wrap">
             <div class="container">
+
                 <ul class="breadcrumb">
                 {% spaceless %}
                 {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
                 {% endspaceless %}
-                {% comment %}
-                <li class="active">{% block title %}{% endblock %}</li>
-                {% endcomment %}
+                
                 </ul>
             </div>
         </div>
     </div>
-    
     <div class="wrap">
-        <div class="container">
+         <div class="container call_out">  
             <div class="row">
-                <div class="span8">
+                <div class="col-md-9">
                     {% block main %}{% endblock %}
                 </div>
-                 
-                <div class="span4">
-                    {% block right_panel %}{% include "blog/includes/filter_panel.html" %}{% endblock %}
+                <div class="col-md-3 call_out blog">
+                  {% block right_panel %}
+                  {% if request.get_full_path != "/contact-page/" %}
+                  {% include "blog/includes/filter_panel.html" %}
+                   {% endif %}
+                  {% endblock %}
                 </div>
-               
             </div>
         </div>
     </div>
- </div>   
-
-{{ beta_form }}
+</div>
 <!--//page_container-->
-
-
 {% endblock %}
   </div>
     <!--footer-->
@@ -119,25 +117,23 @@
             <div class="wrap">
                 <div class="container">
                     <div class="row">
-                        <div class="span5">
+                        <div class="col-md-6">
                             <div class="foot_logo"><a href="index.html"><img src="{% static "images/kneto_logo_grey.png" alt="" / %} "></a></div>    
                             <div class="copyright">&copy; 2013 Kneto Oy. All Rights Reserved.</div>                        
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-md-4">
                             <div class="foot_right_block">
                             
                                 <div class="follow_us">
                                     <ul>
                                         <li><a rel="tooltip" href="#" title="Facebook" class="facebook">Facebook</a></li>
                                         <li><a rel="tooltip" href="#" title="Twitter" class="twitter">Twitter</a></li>
-                                        <li><a rel="tooltip" href="#" title="Tumbrl" class="tumbrl">Tumbrl</a></li>
-                                        <li><a rel="tooltip" href="#" title="Vimeo" class="vimeo">Vimeo</a></li>
-                                        <li><a rel="tooltip" href="#" title="Delicious" class="delicious">Delicious</a></li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="clear"></div>
                             
-                                <div class="span4">
+                                <div class="col-md-4">
                                 <div class="foot_menu">
                                      {% page_menu "pages/menus/dropdown.html" %}
                                 </div>
@@ -157,10 +153,31 @@
             //Slider
            $('.carousel').carousel('cycle', 'pause: hover')  
  
+</script>
+ <script type="text/javascript">
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(60.166446,24.935718);
+
+        var mapOptions = {
+
+          center: new google.maps.LatLng(60.166446,24.935718),
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+        
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title:"Kneto!"
+        });
+
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
 
-{% include "includes/footer_scripts.html" %}
 
 </body>
 </html>

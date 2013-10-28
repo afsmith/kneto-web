@@ -26,6 +26,7 @@ class HomeAdmin(PageAdmin):
 
 
     admin.site.register( HomePage,)
-    admin.site.register( Slide,)
-    admin.site.register( IconBlurb,)
+ 
+#    admin.site.register( Slide,)
+#    admin.site.register( IconBlurb,)
    
