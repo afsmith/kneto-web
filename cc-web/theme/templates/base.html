@@ -40,8 +40,6 @@
     <script src="{% static "js/bootstrap.js" %}"></script>
     <script type="text/javascript" src="{% static "js/jquery.jcarousel.js" %}"></script>
     <script type="text/javascript" src="{% static "js/myscript.js" %}"></script>  
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNyGi1ikK5NwJwhE8Omh9WpO3ac8Mww_U&sensor=false">
     </script>
     {% block extra_js %} {% endblock %}
    
@@ -81,17 +79,32 @@
     <div class="breadcrumb">
         <div class="wrap">
             <div class="container">
-
                 <ul class="breadcrumb">
                 {% spaceless %}
                 {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
                 {% endspaceless %}
                 
                 </ul>
+
             </div>
         </div>
+{% if request.get_full_path = "/contact-page/" %}
+        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict.jpg" > 
+{% endif %}
+{% if request.get_full_path = "/our-team/" %}
+        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict1.jpg" > 
+{% endif %}
+{% if request.get_full_path = "/philosophy/" %}
+        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict3.jpg" > 
+{% endif %}
+{% if request.get_full_path = "/blog/" %}
+        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict3.jpg" > 
+{% endif %}
+
+
     </div>
     <div class="wrap">
+         {% if request.get_full_path != "/contact-page/" %}
          <div class="container call_out">  
             <div class="row">
                 <div class="col-md-9">
@@ -99,13 +112,23 @@
                 </div>
                 <div class="col-md-3 call_out blog">
                   {% block right_panel %}
-                  {% if request.get_full_path != "/contact-page/" %}
+                 
                   {% include "blog/includes/filter_panel.html" %}
-                   {% endif %}
+                  
                   {% endblock %}
                 </div>
             </div>
         </div>
+         {% endif %}
+
+{% if request.get_full_path = "/contact-page/" %}
+ <div class="container">  
+            <div class="row">              
+                    {% block contact %}{% endblock %}                
+            </div>
+        </div>
+ {% endif %}
+
     </div>
 </div>
 <!--//page_container-->
@@ -121,7 +144,7 @@
                             <div class="foot_logo"><a href="index.html"><img src="{% static "images/kneto_logo_grey.png" alt="" / %} "></a></div>    
                             <div class="copyright">&copy; 2013 Kneto Oy. All Rights Reserved.</div>                        
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="foot_right_block">
                             
                                 <div class="follow_us">
@@ -133,11 +156,12 @@
                                 </div>
                                 <div class="clear"></div>
                             
-                                <div class="col-md-4">
-                                <div class="foot_menu">
+                               
+                                <div class="foot_menu"><div class="menu_wrap">
                                      {% page_menu "pages/menus/dropdown.html" %}
+                                 </div>
                                 </div>
-                                </div> 
+                                
                             </div>                            
                         </div>
                     </div>  
@@ -151,31 +175,14 @@
 <script type="text/javascript">
         $(document).ready(function(){   
             //Slider
-           $('.carousel').carousel('cycle', 'pause: hover')  
+           $('.carousel').carousel({
+            cycle 
+            pause:hover 
+            wrap
+        })  
  
 </script>
- <script type="text/javascript">
-      function initialize() {
-        var myLatlng = new google.maps.LatLng(60.166446,24.935718);
 
-        var mapOptions = {
-
-          center: new google.maps.LatLng(60.166446,24.935718),
-          zoom: 15,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
-        
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map,
-            title:"Kneto!"
-        });
-
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
 
 
 

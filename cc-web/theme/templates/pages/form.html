@@ -9,11 +9,20 @@ $(function() {$('.middle :input:visible:enabled:first').focus();});
 </script>
 {% endblock %}
 
-{% block main %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-{{ block.super }}
+{% block contact %}
+
+        <div class="col-md-6">
+
+        <div id="map"><iframe  height="310" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kalevankatu,+Helsinki,+Finland+18&amp;aq=t&amp;sll=60.16391,24.935231&amp;sspn=0.016334,0.0418&amp;ie=UTF8&amp;hq=&amp;hnear=Kalevankatu+18,+00100+Helsinki,+Finland&amp;t=m&amp;z=14&amp;ll=60.166446,24.935718&amp;output=embed"></iframe><br />
+    <p>Kalevankatu 18B<br/>00100 Helsinki, Finland</p>
+    Email: <a href="mailto:#">info@kneto.com</a><br/></p>                           
+        </div>
+ </div>
+        
+        <div class="col-md-6">
+            <h2 class="title"><span>Get In Touch</span></h2>
+                            <div class="contact_form">  
+            {{ block.super }}
 {% if request.GET.sent %}
     {% editable page.form.response %}
     {{ page.form.response|richtext_filters|safe }}
@@ -24,19 +33,17 @@ $(function() {$('.middle :input:visible:enabled:first').focus();});
     {{ page_form.content|richtext_filters|safe }}
     {% endeditable %}
     {% endwith %}
+
     <form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
         {% fields_for form %}
-        <div class="form-actions">
+            <div class="form-actions">
             <input class="btn btn-primary btn-large" type="submit" value="{{ page.form.button_text }}">
-        </div>
+            </div>
     </form>
-
-        </div>
-        <div class="col-md-7">
-            <div id="map-canvas"/>
-        </div>    
+                </div>    
     </div>
-</div>
+
+
 
 {% endif %}
 
