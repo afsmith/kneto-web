@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load pages_tags mezzanine_tags i18n future staticfiles %}
+{% load pages_tags mezzanine_tags i18n future staticfiles blog_tags keyword_tags  bootstrap3 %}
 
 {% block all_content %}
 
@@ -79,33 +79,42 @@
                 <div class="welcome_line"></div>
         </div>       
 <div class="yellow_box">
-    <div class="container wrap ">
+    <div class="container">
             
                 <div class="row">
-                    <div class="col-md-4 offset2">
-                        <h3 class="title">Sign up for the Beta!</h3>
+                    <div class="col-sm-3">
+                    {% block blog_recent_posts %}
+                    {% blog_recent_posts 3 category="news" as recent_posts %}
+                    {% if recent_posts %}
+                    <h3>{% trans "News" %}</h3>
+                    <ul class="unstyled recent-posts">
+                    {% for recent_post in recent_posts %}
+                    <li><a href="{{ recent_post.get_absolute_url }}"
+                        >{{ recent_post.title }}</a></li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endblock %}
+
+
+                    </div> 
+                    <div class="col-sm-1 big_mark font">
+                        !   
+                    </div> 
+                    <div class="col-sm-4">
+                        <h3 class="title">Sign up for the Beta</h3>
                          {{settings.SITE_TAGLINE}}    
                     </div> 
-                    <div class="col-md-2">
-                        <h3 class="title">Testimonials</h3>
-                            
-                       
-    <form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+                    <div class="col-sm-4 contact_form">                      
+            <form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+                    {% csrf_token %}
+                 {% bootstrap_form form %}
 
-        {% fields_for form %}
-        <div class="form-actions">
+            <div class="form-actions">
             <input class="btn btn-primary btn-large" type="submit" value="Submit">
         </div>
     </form>
-
-                            
-
-
-
-
-
-
-                    </div>
+            </div>
                 
                      
         </div>
