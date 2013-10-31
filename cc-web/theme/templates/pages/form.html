@@ -1,9 +1,9 @@
 {% extends "pages/page.html" %}
 
-{% load mezzanine_tags bootstrap3 %}
+{% load mezzanine_tags  bootstrap %}
 
 {% block extra_js %}
-{{ block.super }}
+
 <script>
 $(function() {$('.middle :input:visible:enabled:first').focus();});
 </script>
@@ -11,36 +11,26 @@ $(function() {$('.middle :input:visible:enabled:first').focus();});
 
 {% block contact %}
 
-        <div class="col-md-6">
+        <div class="col-md-6 pad_top">
 
-        <div id="map"><iframe  height="310" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kalevankatu,+Helsinki,+Finland+18&amp;aq=t&amp;sll=60.16391,24.935231&amp;sspn=0.016334,0.0418&amp;ie=UTF8&amp;hq=&amp;hnear=Kalevankatu+18,+00100+Helsinki,+Finland&amp;t=m&amp;z=14&amp;ll=60.166446,24.935718&amp;output=embed"></iframe><br />
+        <div id="map"><iframe width="425" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kalevankatu+18b,+Helsinki,+Finland&amp;aq=0&amp;oq=kalevenkatu+18b&amp;sll=37.0625,-95.677068&amp;sspn=54.665451,66.09375&amp;ie=UTF8&amp;hq=&amp;hnear=Kalevankatu+18,+00100+Helsinki,+Finland&amp;t=m&amp;ll=60.166451,24.935703&amp;spn=0.01708,0.036478&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
     <p>Kalevankatu 18B<br/>00100 Helsinki, Finland</p>
     Email: <a href="mailto:#">info@kneto.com</a><br/></p>                           
         </div>
  </div>
         
-        <div class="col-md-6">
+        <div class="col-md-6 pad_top">
             <h2 class="title"><span>Get In Touch</span></h2>
-                            <div class="contact_form">  
-            {{ block.super }}
-{% if request.GET.sent %}
-    {% editable page.form.response %}
-    {{ page.form.response|richtext_filters|safe }}
-    {% endeditable %}
-{% else %}
-    {% with page.form as page_form %}
-    {% editable page_form.content %}
-    {{ page_form.content|richtext_filters|safe }}
-    {% endeditable %}
-    {% endwith %}
-
-    <form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
-       
-                {% csrf_token %}
-                 {% bootstrap_form form %}
+                            <div class="form-group">  
+            
+            <form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+                  {% csrf_token %}
+                 {{ form|bootstrap }}
+               
 
             <div class="form-actions">
-            <input class="btn btn-primary btn-large" type="submit" value="{{ page.form.button_text }}">
+            <input class="btn btn-primary btn-large" type="submit" value="Submit">
+
             </div>
     </form>
                 </div>    
@@ -48,7 +38,7 @@ $(function() {$('.middle :input:visible:enabled:first').focus();});
 
 
 
-{% endif %}
+
 
 {% endblock %}
 

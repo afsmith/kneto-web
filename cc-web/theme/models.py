@@ -18,6 +18,19 @@ class HomePageInc(models.Model):
         return self.name
 
 
+class ContactFormInc(models.Model):
+    """
+    model for the homepage form
+    """
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    message = models.CharField(max_length=200)
+    date = models.DateTimeField()
+
+    def __unicode__(self):
+        return self.name
+
 
 class HomePage(Page, RichText):
     '''
@@ -43,15 +56,22 @@ class HomePage(Page, RichText):
     featured_works_heading = models.CharField(max_length=200,
         default="Featured Works")
 
-    content_heading = models.CharField(max_length=200,
-        default="About us!")
-    latest_posts_heading = models.CharField(max_length=200,
-        default="Latest Posts")
+    center_bottom = models.CharField(max_length=200,
+        default="Center Bottom")
+
+    #latest_posts_heading = models.CharField(max_length=200,
+    #   default="Latest Posts")
     
 
     class Meta:
         verbose_name = _("Home page")
         verbose_name_plural = _("Home pages")
+
+
+class ContactPage(Page):
+    class Meta:
+        verbose_name = _("Contact Page")
+        verbose_name_plural = _("Contact Pages")
 
 
 class Slide(Orderable):

@@ -19,7 +19,7 @@
     <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
     {% endifinstalled %}
 
-    <link href='http://fonts.googleapis.com/css?family=Allerta' rel='stylesheet' type='text/css'>
+   <!-- <link href='http://fonts.googleapis.com/css?family=Allerta' rel='stylesheet' type='text/css'> -->
     
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
     <link href="{% static "css/theme.css" %}" rel="stylesheet"> 
@@ -107,10 +107,10 @@
          {% if request.get_full_path != "/contact-page/" %}
          <div class="container call_out">  
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-9 pad_top">
                     {% block main %}{% endblock %}
                 </div>
-                <div class="col-md-3 call_out blog">
+                <div class="col-md-3 call_out blog pad_top">
                   {% block right_panel %}
                  
                   {% include "blog/includes/filter_panel.html" %}
@@ -123,7 +123,8 @@
 
 {% if request.get_full_path = "/contact-page/" %}
  <div class="container">  
-            <div class="row">              
+            <div class="row">  
+
                     {% block contact %}{% endblock %}                
             </div>
         </div>
