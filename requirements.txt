@@ -10,7 +10,6 @@ Django==1.5.4
 Pillow==2.2.1
 Werkzeug==0.9.4
 bleach==1.2.2
-distribute==0.6.24
 django-bootstrap-form==3.0
 filebrowser-safe==0.2.31
 grappelli-safe==0.2.22
@@ -20,5 +19,3 @@ psycopg2==2.5.1
 pytz==2013.7
 requests==1.2.3
 requests-oauthlib==0.3.3
-six==1.4.1
-wsgiref==0.1.2
