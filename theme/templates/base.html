@@ -90,17 +90,18 @@
         </div>
 {% if request.get_full_path = "/contact-page/" %}
         <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict.jpg" > 
-{% endif %}
-{% if request.get_full_path = "/our-team/" %}
-        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict1.jpg" > 
-{% endif %}
-{% if request.get_full_path = "/philosophy/" %}
-        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict3.jpg" > 
-{% endif %}
-{% if request.get_full_path = "/blog/" %}
-        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict.jpg" > 
-{% endif %}
 
+{% elif request.get_full_path = "/our-team/" %}
+        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict1.jpg" > 
+
+{% elif request.get_full_path = "/philosophy/" %}
+        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict3.jpg" > 
+
+{% elif request.get_full_path = "/blog/" %}
+        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict.jpg" > 
+{% else %}
+        <img src="{{ MEDIA_URL }}uploads/page_top/page2_pict.jpg" >
+{% endif %}
 
     </div>
     <div class="wrap">
