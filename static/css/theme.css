@@ -713,9 +713,8 @@ ul.tweets li {
   background:#65912f;
   color:#d00b01;
  /* font-family: 'Open Sans', sans-serif; */
-  font-family: 'Allerta', sans-serif;
+  /* font-family: 'Allerta', sans-serif; */
   font-weight:400;
-  font-size:19px;
   border-radius: 0px 0px 0px 0px;
 }
 .breadcrumb span {
@@ -724,9 +723,13 @@ ul.tweets li {
 }
 .breadcrumb a {
   color:#1e1e1e;
-  font-family: 'Allerta', sans-serif;
+ /* font-family: 'Allerta', sans-serif; */
   font-weight:400;
-  font-size:19px;
+  font-size:15px;
+}
+
+.breadcrumb .active {
+	color:#ffffff;
 }
 .profile {text-align:center;
 }
@@ -1077,6 +1080,9 @@ ul.recent_post div a:hover {color:#d00b01;
 
 .pad_top { 
 	padding-top:40px;
+}
+.pad_right { 
+	margin-right: 10px
 }
 
 .contact_form textarea { min-height:260px !important;
