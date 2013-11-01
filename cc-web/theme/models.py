@@ -53,9 +53,11 @@ class HomePage(Page, RichText):
         help_text="The heading under the icon blurbs")
     subheading = models.CharField(max_length=200,
         help_text="The subheading just below the heading")
-    featured_works_heading = models.CharField(max_length=200,
-        default="Featured Works")
+#    featured_works_heading = models.CharField(max_length=200,
+#       default="Featured Works")
 
+    center_title = models.CharField(max_length=200,
+        default="Center Bottom Title")
     center_bottom = models.CharField(max_length=200,
         default="Center Bottom")
 
