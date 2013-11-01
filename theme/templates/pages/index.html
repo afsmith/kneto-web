@@ -33,7 +33,7 @@
                
                         <div class="col-sm-4">
                      
-                        <a href="#">
+                        <a href="#gogo">
                             <span class="link_title">{{ page.homepage.callout_title_left }}</span>
                                 {{ page.homepage.calloutleft }}
                         </a>
@@ -42,7 +42,7 @@
 
                    
                         <div class="col-sm-4">
-                        <a href="#">
+                        <a href="#gogo">
                             <span class="link_title">{{ page.homepage.callout_title_center }}</span>
                             {{ page.homepage.calloutcenter }}
                         </a>
@@ -50,7 +50,7 @@
                     </div>
                     
                         <div class="col-sm-4">
-                        <a href="#">
+                        <a href="#gogo">
                             <span class="link_title">{{ page.homepage.callout_title_right }}</span>
                             {{ page.homepage.calloutright }}
                         </a>
@@ -103,7 +103,8 @@
                         <h3 class="title">{{ page.homepage.center_title}}</h3>
                          {{ page.homepage.center_bottom}}    
                     </div> 
-                    <div class="col-sm-4 contact_form">                      
+                    <div class="col-sm-4 contact_form" id="gogo" name="gogo">  
+
             <form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
                  {% csrf_token %}
                  {{ form|bootstrap }}
