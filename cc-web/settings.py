@@ -318,7 +318,7 @@ FABRIC = {
      "HOSTS": ['109.74.10.96'], # List of hosts to deploy to
      "VIRTUALENV_HOME":  "/opt/virt", # Absolute remote path for virtualenvs
      "PROJECT_NAME": "ccweb", # Unique identifier for project
-     "REQUIREMENTS_PATH": "requirements/project.txt", # Path to pip requirements, relative to project
+     "REQUIREMENTS_PATH": "requirements.txt", # Path to pip requirements, relative to project
      "GUNICORN_PORT": 8000, # Port gunicorn will listen on
      "LOCALE": "en_US.UTF-8", # Should end with ".UTF-8"
      "LIVE_HOSTNAME": "kneto.com", # Host for public site.
