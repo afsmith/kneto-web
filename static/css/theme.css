@@ -766,6 +766,7 @@ legend {
 }
 .blog h3 {
 /* 	font-family: 'Allerta', sans-serif; */
+ 	font-size: 20px;
 
 }
 .blog h4 {
@@ -1079,8 +1080,13 @@ ul.recent_post div a:hover {color:#d00b01;
 }
 
 .pad_top { 
-	padding-top:40px;
+	padding-top:30px;
 }
+
+.lrpad_top { 
+	padding-top:10px;
+}
+
 .pad_right { 
 	margin-right: 10px
 }

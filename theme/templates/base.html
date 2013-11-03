@@ -106,15 +106,15 @@
     </div>
     <div class="wrap">
          {% if request.get_full_path != "/contact-page/" %}
-         <div class="container call_out">  
+         <div class="container call_out pad_top">  
             <div class="row">
-                <div class="col-md-1 ">
-                    
-                </div>
-                <div class="col-md-8 pad_top">
+                <div class="col-md-2 call_out lrpad_top">
+                    {% page_menu "pages/menus/tree.html" %}
+                </div> 
+                <div class="col-md-7 pad_top">
                     {% block main %}{% endblock %}
                 </div>
-                <div class="col-md-3 call_out blog pad_top">
+                <div class="col-md-3 call_out blog lrpad_top">
                   {% block right_panel %}
                  
                   {% include "blog/includes/filter_panel.html" %}
