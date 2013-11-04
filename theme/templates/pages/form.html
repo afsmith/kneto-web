@@ -24,14 +24,12 @@ $(function() {$('.middle :input:visible:enabled:first').focus();});
      </div>
         
 <div class="col-md-6 pad_top">
-            <h2 class="title"><span>
+            <h2 class=""><span>
    {% with page.form as page_form %}
     {% editable page_form.content %}
     {{ page_form.content|richtext_filters|safe }}
     {% endeditable %}
     {% endwith %}
-
-
             </span></h2>
     <div class="form-group">  
             
