@@ -92,7 +92,7 @@
                     <ul class="news recent-posts">
                     {% for recent_post in recent_posts %}
                     <li><a href="{{ recent_post.get_absolute_url }}"
-                        >{{ recent_post.title }}</a></li>
+                        >{{ recent_post.title }}</a></li><br>
                     {% endfor %}
                     </ul>
                     {% endif %}
