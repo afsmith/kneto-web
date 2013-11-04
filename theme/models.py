@@ -36,15 +36,15 @@ class HomePage(Page, RichText):
     '''
     A page representing the format of the home page
     '''
-    calloutleft = models.CharField(max_length=200,
+    calloutleft = models.CharField(max_length=250,
         help_text="Left side Callout", default="callout left")
     callout_title_left = models.CharField(max_length=30,
         help_text="Left side Callout title", default="callout title left")
-    calloutcenter = models.CharField(max_length=200,
+    calloutcenter = models.CharField(max_length=250,
         help_text="Center Callout", default="callout center")
     callout_title_center = models.CharField(max_length=30,
         help_text="Center side Callout title", default="callout title center")
-    calloutright = models.CharField(max_length=200,
+    calloutright = models.CharField(max_length=250,
         help_text="Right side Callout", default="callout right")
     callout_title_right = models.CharField(max_length=30,
         help_text="Right side Callout title", default="callout title right")
