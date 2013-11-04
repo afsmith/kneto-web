@@ -36,7 +36,7 @@
                         <div class="col-md-4">
                      
                         <a href="#gogo">
-                            <span class="link_title">{{ page.homepage.callout_title_left }}</span>
+                            <span class="link_title font">{{ page.homepage.callout_title_left }}</span>
                                 {{ page.homepage.calloutleft }}
                         </a>
                    
@@ -45,15 +45,15 @@
                    
                         <div class="col-md-4">
                         <a href="#gogo">
-                            <span class="link_title">{{ page.homepage.callout_title_center }}</span>
+                            <span class="link_title font ">{{ page.homepage.callout_title_center }}</span>
                             {{ page.homepage.calloutcenter }}
                         </a>
                    
                     </div>
                     
-                        <div class="col-md-4">
+                        <div class="col-md-4 ">
                         <a href="#gogo">
-                            <span class="link_title">{{ page.homepage.callout_title_right }}</span>
+                            <span class="link_title font">{{ page.homepage.callout_title_right }}</span>
                             {{ page.homepage.calloutright }}
                         </a>
                   
@@ -71,10 +71,10 @@
             <div class="container welcome_block">
                 <div class="welcome_line col-sm-12 welcome_t"></div>
                {% editable page.homepage.heading page.homepage.subheading %}
-                {{ page.homepage.heading }}
+               <div class="font" > {{ page.homepage.heading }} </div>
                 
 
-        <span>{{ page.homepage.subheading }}</span>
+        <span> <div class="" > {{ page.homepage.subheading }}  </div></span>
 
             {% endeditable %}
             </div>

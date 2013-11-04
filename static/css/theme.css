@@ -3,11 +3,11 @@ a, input, select, textarea {outline:none !important;
 body { overflow-x:hidden;
 }
 .font {
-/* 	font-family: 'Allerta', sans-serif; */
-/*	font-weight:400; /*Normal*/
-/*	font-weight:600; /*Semi-Bold*/
-/*	font-weight:700; /*Bold*/
-/*	font-weight:800; /*Extra-Bold*/
+ 	font-family:Arial;
+	font-weight:400; /*Normal*/
+	font-weight:600; /*Semi-Bold*/
+	font-weight:700; /*Bold*/
+	font-weight:800; /*Extra-Bold*/
 
 }
 .header {
@@ -125,7 +125,7 @@ img {
   line-height:18px;
   color: #313131;
  /* font-family: 'Open Sans', sans-serif; */
- font-family: 'Allerta', sans-serif;
+/*  font-family: 'Allerta', sans-serif;*/
   font-weight:800;
   font-size:14px;
   text-transform: uppercase;
