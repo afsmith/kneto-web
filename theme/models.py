@@ -25,7 +25,7 @@ class ContactFormInc(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
-    message = models.CharField(max_length=200)
+    message = models.CharField(max_length=5000)
     date = models.DateTimeField()
 
     def __unicode__(self):
