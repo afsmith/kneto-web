@@ -34,7 +34,7 @@ CACHES = {
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
-ALLOWED_HOSTS = ['kneto.com', '109.74.10.96']
+ALLOWED_HOSTS = ['kneto.com', '109.74.10.96', 'kneto.fi', 'kneto.se',]
 
 MAIL_HOST = 'smtp.sendgrid.net'
 #EMAIL_PORT = 587
