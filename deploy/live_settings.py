@@ -44,7 +44,7 @@ ALLOWED_HOSTS = ['kneto.com', '109.74.10.96', 'kneto.fi', 'kneto.se',]
 
 
 MAIL_HOST = 'smtp.sendgrid.net'
-#EMAIL_PORT = 587
+EMAIL_PORT = 587
 EMAIL_HOST_USER='andrew.smith@kneto.com'
 EMAIL_HOST_PASSWORD='rFUnDlfNA5l)[ncu\'IN6N.P!R'
 DEFAULT_FROM_EMAIL='cc@kneto.com'
