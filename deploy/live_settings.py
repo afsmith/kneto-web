@@ -40,7 +40,7 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 ALLOWED_HOSTS = ['kneto.com', '109.74.10.96', 'kneto.fi', 'kneto.se',]
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 MAIL_HOST = 'smtp.sendgrid.net'
@@ -49,5 +49,5 @@ EMAIL_HOST_USER='andrew.smith@kneto.com'
 EMAIL_HOST_PASSWORD='rFUnDlfNA5l)[ncu\'IN6N.P!R'
 DEFAULT_FROM_EMAIL='cc@kneto.com'
 DEFAULT_BCC_EMAIL='app@kneto.fi'
-#EMAIL_USE_TLS=True
+EMAIL_USE_TLS=True
 
