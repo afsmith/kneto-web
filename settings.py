@@ -87,7 +87,7 @@ USE_SOUTH = True
 # In the format (('Full Name', 'email@example.com'),
 #                ('Full Name', 'anotheremail@example.com'))
 ADMINS = (
-     ('Andrew Smith', 'andrew.smith@kneto.com'),
+     ('Andrew Smith', 'andrew.smith@kneto.fi'),
 )
 MANAGERS = ADMINS
 
