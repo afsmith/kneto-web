@@ -2,8 +2,8 @@
 SECRET_KEY = "%(secret_key)s"
 NEVERCACHE_KEY = "%(nevercache_key)s"
 
-TEMPLATE_DEBUG = True
-DEBUG = True
+#TEMPLATE_DEBUG = True
+#DEBUG = True
 
 
 DATABASES = {
