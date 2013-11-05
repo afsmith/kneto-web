@@ -1,0 +1,28 @@
+{% block subject %}Thanks for your interest in becoming a beta customer! {% endblock %}
+{% block plain %}
+  Hi {{email}},
+
+  We are currently running a pilot phase where we collect data from various scenarios.  When the data is sorted out and we are ready to implement it in your area will be in touch with you.
+
+If there is anything you feel is important for your needs, Please drop us a line at info.kneto.com
+
+Thanks!
+
+{% endblock %}
+
+{% block html %}
+  <p>Hi {{email}},</p>
+
+  <p>
+
+We are currently running a pilot phase where we collect data from various scenarios.  When the data is sorted out and we are ready to implement it in your area will be in touch with you.  </p>
+<p>
+
+If there is anything you feel is important for your needs, Please drop us a line at info.kneto.com
+
+  </p>
+
+  <p>Thanks!</p>
+
+{% endblock %}
+

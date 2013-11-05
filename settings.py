@@ -329,6 +329,10 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 #     "NEVERCACHE_KEY": NEVERCACHE_KEY,
 #}
 
+#
+
+TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django'
+
 
 ##################
 # LOCAL SETTINGS #

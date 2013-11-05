@@ -19,3 +19,4 @@ psycopg2==2.5.1
 pytz==2013.7
 requests==1.2.3
 requests-oauthlib==0.3.3
+django-templated-email==0.4.9

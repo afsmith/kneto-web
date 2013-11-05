@@ -1,8 +1,10 @@
+from django.conf import settings
 from datetime import datetime    
 from django import forms
 from django.shortcuts import render_to_response
 from django.forms import ModelForm
 from django.http import HttpResponseRedirect
+from templated_email import send_templated_mail
 from mezzanine.pages.page_processors import processor_for
 from .models import HomePage, HomePageInc, ContactFormInc, ContactPage
 
@@ -38,6 +40,15 @@ def beta_form(request, page):
            homeForm.date = datetime.now()
            homeForm.form_name = 'HomePageForm'
            homeForm.save()
+           send_templated_mail(
+            template_name='beta_thanks',
+            from_email= settings.DEFAULT_FROM_EMAIL ,
+            recipient_list=[ homeForm.email ],
+            bcc=[settings.DEFAULT_BCC_EMAIL],
+            context={
+            'email': homeForm.email,
+            },
+            )
 
            #redirect = request.path + "?submitted=true"
            redirect = "beta_thanks/" 
@@ -55,7 +66,6 @@ def contact_form(request, page):
            # Form processing goes here.
           ContForm.date = datetime.now()
           ContForm.save()
-
           #redirect = request.path + "?submitted=true"
           mredirect = "/thanks-for-your-interest/" 
           return HttpResponseRedirect(mredirect)
