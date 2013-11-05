@@ -49,5 +49,5 @@ EMAIL_HOST_USER='andrew.smith@kneto.com'
 EMAIL_HOST_PASSWORD='rFUnDlfNA5l)[ncu\'IN6N.P!R'
 DEFAULT_FROM_EMAIL='cc@kneto.com'
 DEFAULT_BCC_EMAIL='app@kneto.fi'
-EMAIL_USE_TLS=True
+#EMAIL_USE_TLS=True
 
