@@ -728,6 +728,15 @@ ul.tweets li {
   font-size:15px;
 }
 
+.breadcrumb img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+}
+
 .breadcrumb .active {
 	color:#ffffff;
 }
