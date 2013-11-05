@@ -1,0 +1,31 @@
+{% block subject %}Kneto: thanks for the message{% endblock %}
+{% block plain %}
+  Hello {{ fistname }},
+
+  Thanks for the message. One of us will be intouch shortly.
+
+  Here is a copy of your messsage, just in case.
+
+  {{ message }}
+
+  Thanks!
+
+
+  
+{% endblock %}
+
+{% block html %}
+  <p>Hello {{ fistname }},</p>
+
+  <p>Thanks for the message. One of us will be intouch shortly. <br>
+  Here is a copy of your messsage, just in case.
+    
+  <blockquote>  {{ message }} </blockquote>
+
+  </p>
+
+  You can always drop us a line: <a href="mailto:info.kneto.com?subject=contact">info.kneto.com</a>
+
+  <p>Thanks!</p>
+{% endblock %}
+

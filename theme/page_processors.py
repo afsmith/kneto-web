@@ -42,7 +42,7 @@ def beta_form(request, page):
            homeForm.save()
            send_templated_mail(
             template_name='beta_thanks',
-            from_email= settings.DEFAULT_FROM_EMAIL ,
+            from_email= settings.DEFAULT_FROM_EMAIL,
             recipient_list=[ homeForm.email ],
             bcc=[settings.DEFAULT_BCC_EMAIL],
             context={
@@ -66,6 +66,18 @@ def contact_form(request, page):
            # Form processing goes here.
           ContForm.date = datetime.now()
           ContForm.save()
+          send_templated_mail(
+            template_name='contact',
+            from_email= settings.DEFAULT_FROM_EMAIL,
+            bcc=[settings.DEFAULT_BCC_EMAIL],
+            recipient_list=[ ContForm.email ],
+            context={
+            'first_name': ContForm.first_name,
+            'last_name': ContForm.last_name,
+            'message': ContForm.message,
+            },
+            )
+
           #redirect = request.path + "?submitted=true"
           mredirect = "/thanks-for-your-interest/" 
           return HttpResponseRedirect(mredirect)
