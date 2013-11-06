@@ -333,6 +333,7 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 
 TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django'
 
+GEO_DATA= 'geodata/GeoIP.dat'
 
 ##################
 # LOCAL SETTINGS #

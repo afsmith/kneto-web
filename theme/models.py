@@ -13,6 +13,8 @@ class HomePageInc(models.Model):
     form_name = models.CharField(max_length=100, default='NUL')
     date = models.DateTimeField()
     email = models.EmailField()
+    ip = models.GenericIPAddressField(null=True)
+    county = models.CharField(null=True, max_length=50)
 
     def __unicode__(self):
         return self.name
