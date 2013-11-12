@@ -6,7 +6,8 @@ from django.forms import ModelForm
 from django.http import HttpResponseRedirect
 from templated_email import send_templated_mail
 from mezzanine.pages.page_processors import processor_for
-from .models import HomePage, HomePageInc, ContactFormInc, ContactPage
+from django.core.urlresolvers import reverse 
+from .models import HomePage, HomePageInc, ContactFormInc, ContactPage, BetaInterview
 import pygeoip
 
 
@@ -28,6 +29,21 @@ class ContactForm(ModelForm):
             'message': forms.Textarea()
         }
         fields = ('first_name', 'last_name', 'email', 'message',)
+
+class BetaInterview(ModelForm):
+
+    class Meta:
+        model = BetaInterview
+        widgets = {
+        #    'email': forms.HiddenInput(),
+         #   'county': forms.Textarea()
+        }
+        fields = ('how_many_employees_are_in_your_company', 'how_many_work_in_sales',
+                    'how_many_sales_meetings_do_you_have_per_week', 'how_many_offers_do_you_send_out_per_month',
+                    'do_you_use_a_marketing_automation_tool', 'how_do_you_deliver_your_offers',)
+
+
+
 
 
 @processor_for(HomePage)
@@ -57,8 +73,35 @@ def beta_form(request, page):
             )
 
            #redirect = request.path + "?submitted=true"
-           redirect = "beta_thanks/" 
-           return HttpResponseRedirect(redirect)
+           redirect = "beta_thanks/"
+
+           response = HttpResponseRedirect(redirect)
+           response.set_cookie( 'email', homeForm.email )
+           response.set_cookie( 'county', homeForm.county )
+           return response
+           #return HttpResponseRedirect(redirect)
+   
+   return {"form": form}
+
+@processor_for('beta_thanks')
+def beta_interview(request, page):
+   form = BetaInterview()
+   if request.method == "POST":
+       form = BetaInterview(request.POST)
+       if form.is_valid():
+          ip = request.META.get('REMOTE_ADDR', None)
+          ContForm = form.save(commit=False)
+           # Form processing goes here.
+
+          ContForm.email = request.COOKIES[ 'email' ]
+          ContForm.county = request.COOKIES[ 'county' ] 
+          ContForm.date = datetime.now()
+          ContForm.save()
+
+
+          #redirect = request.path + "?submitted=true"
+          mredirect =  "/beta-thanks-for-your-help/"
+          return HttpResponseRedirect(mredirect)
    
    return {"form": form}
 
@@ -89,3 +132,7 @@ def contact_form(request, page):
           return HttpResponseRedirect(mredirect)
    
    return {"form": form}
+
+
+
+

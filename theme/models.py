@@ -34,6 +34,117 @@ class ContactFormInc(models.Model):
         return self.name
 
 
+class BetaInterview(models.Model):
+    """
+    model for beta thanks page
+    """
+    NUMBER_EMPLOYES_CHOICES = (
+            ('00', '----------',),
+            ('01', 'Self Employed',),
+            ('10', '1-10',),
+            ('20', '11-20',),
+            ('50', '20-50',),
+            ('100', '51-100',),
+            ('500', '100-500',),
+            ('501', 'More than 500'),
+        )
+    
+    HOW_MANY_IN_SALES = (
+            ('00', '----------',),
+            ('01', 'None',),
+            ('05', '1-5',),
+            ('10', '6-10',),
+            ('20', '11-20',),
+            ('50', '20-50',),
+            ('100', '51-100',),
+            ('500', '100-500',),
+            ('501', 'More than 500',),
+        )
+
+    HOW_MANY_IN_SALES = (
+            ('00', '----------',),
+            ('01', 'None',),
+            ('05', '1-5',),
+            ('10', '6-10',),
+            ('20', '11-20',),
+            ('50', '21-50',),
+            ('100', '51-100',),
+            ('500', '100-500',),
+            ('501', 'More than 500',),
+        )
+
+    NUMBER_OF_MEETINGS = (
+            ('00', '----------',),
+            ('01', 'None',),
+            ('05', '1-5',),
+            ('10', '6-10',),
+            ('20', '11-20',),
+            ('50', '21-50',),
+            ('100', 'More than 50',),
+        )
+    NUMBER_OF_OFFERS = (
+            ('00', '----------',),
+            ('01', 'None',),
+            ('05', '1-5',),
+            ('10', '6-10',),
+            ('20', '11-20',),
+            ('50', '21-50',),
+            ('100', '51-100',),
+            ('500', '101-500',),
+            ('501', 'More than 500',),
+        )
+
+    AUTOMATION_TOOL = (
+            ('00', '----------',),
+            ('hb','Hubspot',),
+            ('mk','Marketo',),
+            ('el','Elequa',),
+            ('ls','Leadsius',),
+            ('ot','Other',),
+        )
+
+    OFFER_DIST = (
+        ('00', '----------',),
+        ('01', 'In person',),
+        ('02', 'By email',),
+        ('03', 'With CRM',),
+        ('04', 'Other',),
+
+        )
+
+
+
+    how_many_employees_are_in_your_company = models.CharField(max_length=20,
+                                        choices=NUMBER_EMPLOYES_CHOICES,
+                                        default='None',)
+
+    how_many_work_in_sales = models.CharField(max_length=20,
+                                        choices=HOW_MANY_IN_SALES,
+                                        default='Self Employed',)
+
+    how_many_sales_meetings_do_you_have_per_week = models.CharField(max_length=20,
+                                        choices=NUMBER_OF_MEETINGS,
+                                        default='None',)
+
+    how_many_offers_do_you_send_out_per_month =  models.CharField(max_length=20,
+                                        choices=NUMBER_OF_OFFERS,
+                                        default='None',)
+
+    do_you_use_a_marketing_automation_tool =  models.CharField(max_length=20,
+                                        choices=AUTOMATION_TOOL,
+                                        default='None',)
+
+    how_do_you_deliver_your_offers =  models.CharField(max_length=20,
+                                        choices=OFFER_DIST,
+                                        default='None',)
+    email = models.EmailField()
+    county = models.CharField(null=True, max_length=50)
+    date = models.DateTimeField()
+
+    def __unicode__(self):
+        return self.name
+
+
 class HomePage(Page, RichText):
     '''
     A page representing the format of the home page
