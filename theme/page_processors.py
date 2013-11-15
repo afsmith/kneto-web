@@ -1,13 +1,11 @@
 from django.conf import settings
 from datetime import datetime    
 from django import forms
-from django.shortcuts import render_to_response
 from django.forms import ModelForm
 from django.http import HttpResponseRedirect
 from templated_email import send_templated_mail
 from mezzanine.pages.page_processors import processor_for
-from django.core.urlresolvers import reverse 
-from .models import HomePage, HomePageInc, ContactFormInc, ContactPage, BetaInterview
+from .models import HomePage, HomePageInc, ContactFormInc, BetaInterview
 import pygeoip
 
 
@@ -89,7 +87,6 @@ def beta_interview(request, page):
    if request.method == "POST":
        form = BetaInterview(request.POST)
        if form.is_valid():
-          ip = request.META.get('REMOTE_ADDR', None)
           ContForm = form.save(commit=False)
            # Form processing goes here.
 
