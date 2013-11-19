@@ -149,29 +149,29 @@ class HomePage(Page, RichText):
     '''
     A page representing the format of the home page
     '''
-    calloutleft = models.CharField(max_length=250,
+    calloutleft = models.CharField(max_length=500,
         help_text="Left side Callout", default="callout left")
-    callout_title_left = models.CharField(max_length=30,
+    callout_title_left = models.CharField(max_length=500,
         help_text="Left side Callout title", default="callout title left")
-    calloutcenter = models.CharField(max_length=250,
+    calloutcenter = models.CharField(max_length=500,
         help_text="Center Callout", default="callout center")
-    callout_title_center = models.CharField(max_length=30,
+    callout_title_center = models.CharField(max_length=500,
         help_text="Center side Callout title", default="callout title center")
-    calloutright = models.CharField(max_length=250,
+    calloutright = models.CharField(max_length=500,
         help_text="Right side Callout", default="callout right")
-    callout_title_right = models.CharField(max_length=30,
+    callout_title_right = models.CharField(max_length=500,
         help_text="Right side Callout title", default="callout title right")
 
-    heading = models.CharField(max_length=200,
+    heading = models.CharField(max_length=500,
         help_text="The heading under the icon blurbs")
-    subheading = models.CharField(max_length=200,
+    subheading = models.CharField(max_length=500,
         help_text="The subheading just below the heading")
 #    featured_works_heading = models.CharField(max_length=200,
 #       default="Featured Works")
 
-    center_title = models.CharField(max_length=200,
+    center_title = models.CharField(max_length=500,
         default="Center Bottom Title")
-    center_bottom = models.CharField(max_length=200,
+    center_bottom = models.CharField(max_length=500,
         default="Center Bottom")
 
     #latest_posts_heading = models.CharField(max_length=200,

@@ -3,7 +3,7 @@ a, input, select, textarea {outline:none !important;
 body { overflow-x:hidden;
 }
 .font {
- 	font-family:Arial;
+ 
 	font-weight:400; /*Normal*/
 	font-weight:600; /*Semi-Bold*/
 	font-weight:700; /*Bold*/
@@ -11,7 +11,7 @@ body { overflow-x:hidden;
 
 }
 .header {
-	padding:20px 0 0px 0;
+	padding:20px;
 	background:#fff;
 
 }
@@ -24,7 +24,22 @@ body { overflow-x:hidden;
 	display: block;
 	
 }
+.blue_box {
+	padding-top:20px;
+	padding-bottom: 20px;
+	background:#c1d6ea;	
+	max-width: 100%;
+	display: block;	
+}
 
+.grey_box {
+	padding-top:20px;
+	padding-bottom: 20px;
+	background:#cccccc;	
+	max-width: 100%;
+	display: block;	
+	
+}
 
 .fleft {float:left;
 }
@@ -229,14 +244,16 @@ img {
 }
 .separator {
 }
-.block {padding-bottom:50px;
+.block {
+	padding-bottom:50px;
 }
-#main_slider {padding-bottom:70px;	
+#main_slider {
+	padding-bottom:70px;	
 }
 
 .planning {
-	padding-bottom:50px;
-	text-align:center;
+
+	text-align:left;
 }
 .planning a {
 	display:block;
@@ -281,9 +298,9 @@ img {
 }
 .planning a span.link_title {
 	display:block;
-	line-height:24px;
-	font-size:20px;
-	text-transform:uppercase;
+	line-height:25px;
+	font-size:30px;
+
 /*	font-family: 'Open Sans', sans-serif; */
 /* 	font-family: 'Allerta', sans-serif; */
 	font-weight:800;
@@ -293,6 +310,9 @@ img {
 .planning a:hover {text-decoration:none;
 }
 
+.home_font {
+		font-size: 20px;
+}
 
 .call_out {
 /* 	font-family: 'Allerta', sans-serif; */
@@ -302,7 +322,7 @@ img {
 
 
 .welcome_block {
-	text-align:center;
+	text-align:left;
 	padding:36px 0;
 	line-height:20px;
 	font-size:18px;
@@ -311,7 +331,6 @@ img {
 /* 	font-family: 'Allerta', sans-serif; */
 	font-weight:400;
 	position:relative;
-	text-transform:uppercase;
 }
 .welcome_block span {
 	line-height:31px;

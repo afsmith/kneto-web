@@ -10,66 +10,69 @@
 <!--slider-->
 <a href="#gogo">
     <div id="ccCarousel" class="carousel slide breadcrumb">  
-            <!-- Carousel items -->  
+
           <div class="carousel-inner">  
              {% for slide in page.homepage.slides.all %}
-    
+    <!--
             <div class="item{% if forloop.first %} active{% endif %}">
             <img src="{{ MEDIA_URL }}{% thumbnail slide.image 1920 690 %}" >
             </div>  
          {% endfor %}         
-        </div>  
+        </div>  -->
   <!-- Carousel nav -->  
   <a class="carousel-control left" href="#ccCarousel" data-slide="prev"></a>  
   <a class="carousel-control right" href="#ccCarousel" data-slide="next"></a>  
 </div>  
-</a>
+</a>-->  
   
 <!--//slider-->
 {% endif %}                 
         <!--planning-->
          {% editable page.homepage.calloutleft page.homepage.calloutcenter page.homepage.calloutright page.homepage.callout_title_left page.homepage.callout_title_center page.homepage.callout_title_right%}
-        <div class="wrap planning">
-            <div class="container">
-                <div class="row">
+        
+        <div class="blue_box">
+        <div class="container wrap planning">
+
+               <div class="row">
                
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                      
                         <a href="#gogo">
                             <span class="link_title font">{{ page.homepage.callout_title_left }}</span>
-                                {{ page.homepage.calloutleft }}
+                             <div class="home_font">{{ page.homepage.calloutleft }}</div>
                         </a>
                    
                     </div>
 
                    
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                         <a href="#gogo">
                             <span class="link_title font ">{{ page.homepage.callout_title_center }}</span>
-                            {{ page.homepage.calloutcenter }}
+                            <div class="home_font">{{ page.homepage.calloutcenter }}</div>
                         </a>
                    
                     </div>
                     
-                        <div class="col-md-4 ">
+                        <div class="col-md-12 ">
                         <a href="#gogo">
                             <span class="link_title font">{{ page.homepage.callout_title_right }}</span>
-                            {{ page.homepage.calloutright }}
+                           <div class="home_font"> {{ page.homepage.calloutright }}</div>
                         </a>
                   
                     </div>
                                      
-                </div>
-            </div>
+              </div> 
+          
+        </div>
         </div>
   {% endeditable %}
         <!--//planning-->
         
         <!--Welcome-->
-
+        <div class="grey_box">
         <div class="wrap block">
             <div class="container welcome_block">
-                <div class="welcome_line col-sm-12 welcome_t"></div>
+                <div class="col-sm-12 welcome_t"></div>
                {% editable page.homepage.heading page.homepage.subheading %}
                <div class="font" > {{ page.homepage.heading }} </div>
                 
@@ -78,8 +81,9 @@
 
             {% endeditable %}
             </div>
-                <div class="welcome_line"></div>
+              <!--//  <div class="welcome_line"></div> -->
         </div>       
+    </div>
 <div class="yellow_box">
     <div class="container">
             
