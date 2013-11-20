@@ -233,17 +233,16 @@ img {
   height: auto;
   list-style: none;
   z-index: 111;
-  padding: 14px 0 7px 0;
+/*	  padding: 14px 0 7px 0;*/
   margin: 0;
   border-top:0;
 }
 .page_container {
-	padding-bottom:0px;
+/*	padding-bottom:0px;*/
 	background:#FFF;
-	border-top:5px #65912F solid;
+/*	border-top:5px #65912F solid;*/
 }
-.separator {
-}
+
 .block {
 	padding-bottom:50px;
 }
@@ -754,8 +753,6 @@ ul.tweets li {
     
 }
 
-}
-
 .breadcrumb .active {
 	color:#ffffff;
 }
@@ -764,7 +761,6 @@ ul.tweets li {
 .profile_title {
 	font-size: 14px;
     margin-bottom:5px;
-/* 	font-family: 'Allerta', sans-serif; */
 	font-weight:400;
 	color:#3a3a3a;
 }
@@ -774,41 +770,24 @@ ul.tweets li {
 	border-radius:3px;
 }
 legend {
-/* 	font-family: 'Allerta', sans-serif; */
 	font-weight:400;
 }
 
-.blog {
-/* 	font-family: 'Allerta', sans-serif; */
-
+.blog ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.blog h1 {
-/* 	font-family: 'Allerta', sans-serif; */
-
+.blog li a {
+   text-decoration: none;
+  color: #3a3a3a;
+  display: block;
+  
+  padding: .2em .8em;
+ 
 }
 
-.blog h2 {
-/* 	font-family: 'Allerta', sans-serif; */
-
-}
-.blog h3 {
-/* 	font-family: 'Allerta', sans-serif; */
- 	font-size: 20px;
-
-}
-.blog h4 {
-/* 	font-family: 'Allerta', sans-serif; */
-
-}
-.blog h5 {
-/* 	font-family: 'Allerta', sans-serif; */
-
-}
-.blog h6 {
-/* 	font-family: 'Allerta', sans-serif; */
-
-}
 
 /* Portfolio */
 .portfolio_zoom, .portfolio_link {
