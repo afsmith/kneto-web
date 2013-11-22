@@ -621,8 +621,17 @@ ul.tweets li {
 	margin-top:0px;
 	padding:23px 0 26px 0;
 }
-.copyright {color:#444444;
+.copyright {
+	color:#444444;
 }
+
+.copyright a {
+	color:#444444 !important;
+	font-size: 10px;
+	font-style:normal !important;
+
+}
+
 
 .foot_right_block {
 	text-align:right;
