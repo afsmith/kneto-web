@@ -5,6 +5,10 @@ NEVERCACHE_KEY = "%(nevercache_key)s"
 #TEMPLATE_DEBUG = True
 #DEBUG = True
 
+ADMINS = (
+    ('Andrew Smith', 'andrew.smith@kneto.fi'),
+)
+
 
 DATABASES = {
     "default": {
