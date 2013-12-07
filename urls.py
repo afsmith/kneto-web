@@ -5,6 +5,7 @@ from django.contrib import admin
 from mezzanine.core.views import direct_to_template
 
 
+
 admin.autodiscover()
 
 # Add the urlpatterns for any custom Django applications here.
@@ -82,7 +83,7 @@ urlpatterns = patterns("",
     # need to use the ``SITE_PREFIX`` setting as well.
 
     # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
-    (r'', include('zendesk_auth.urls')),
+    (r'zendesk$', 'theme.views.authorize' ),
 
 )
 

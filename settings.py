@@ -243,7 +243,6 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    "zendesk_auth",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
 )

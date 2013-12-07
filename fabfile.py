@@ -7,7 +7,7 @@ from glob import glob
 from contextlib import contextmanager
 from posixpath import join
 
-#from fabric.api import env, cd, prefix, sudo as _sudo, run as _run, hide, task
+from fabric.api import env, cd, prefix, sudo as _sudo, run as _run, hide, task
 from fabric.api import *
 from fabric.contrib.files import exists, upload_template
 from fabric.colors import yellow, green, blue, red
