@@ -56,3 +56,5 @@ DEFAULT_BCC_EMAIL='app@kneto.fi'
 EMAIL_USE_TLS=True
 #EMAIL_CONTENT_SUBTYPE='html'
 
+ZENDESK_URL = 'https://kneto.zendesk.com'
+ZENDESK_TOKEN   = 'WetcGFoOtVRA1j0KpMUQXXYDu3bFUvuYgeG9tSVnMVXodpVm'

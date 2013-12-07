@@ -8,7 +8,7 @@ from django.utils.http import urlquote
 from hashlib import md5
 
 @never_cache
-#@login_required
+@login_required
 def authorize(request):
     try:
         timestamp = request.GET['timestamp']
