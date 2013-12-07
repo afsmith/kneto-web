@@ -21,3 +21,4 @@ requests==1.2.3
 requests-oauthlib==0.3.3
 django-templated-email==0.4.9
 pygeoip==0.2.7
+zendesk_django_auth== 0.0.2

@@ -7,7 +7,8 @@ from glob import glob
 from contextlib import contextmanager
 from posixpath import join
 
-from fabric.api import env, cd, prefix, sudo as _sudo, run as _run, hide, task
+#from fabric.api import env, cd, prefix, sudo as _sudo, run as _run, hide, task
+from fabric.api import *
 from fabric.contrib.files import exists, upload_template
 from fabric.colors import yellow, green, blue, red
 
@@ -520,6 +521,14 @@ def rollback():
             run("tar -xf %s" % join(env.proj_path, "last.tar"))
         restore("last.db")
     restart()
+
+@task
+def start_server():
+    """
+    Starts the dev server
+    """
+    local('python manage.py runserver_plus 192.168.0.111:8000')
+    return True
 
 
 @task
