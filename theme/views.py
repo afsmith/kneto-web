@@ -20,10 +20,8 @@ def authorize(request):
     first = u.first_name
     last = u.last_name
     if not first and not last:
-        #first = "Anonymous"
-        #last = "User"
-        first = u.email
-        last = ''
+        first = "Anonymous"
+        last = "User"
   
     data = u'%s %+s%s%s%s' % (first, last, u.email, settings.ZENDESK_TOKEN, timestamp)
     hash = md5(data.encode('utf-8')).hexdigest()

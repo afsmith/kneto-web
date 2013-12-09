@@ -83,7 +83,7 @@ urlpatterns = patterns("",
     # need to use the ``SITE_PREFIX`` setting as well.
 
     # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
-    (r'zendesk/$', 'theme.views.authorize')
+    (r'zendesk$', 'theme.views.authorize')
 
 
 )
