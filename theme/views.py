@@ -29,8 +29,7 @@ def index(request):
     "email": request.user.email
   }
 
-  subdomain = settings.ZENDESK_URL
+  subdomain = settings.ZENDESK_SUBDOMAIN
   shared_key = settings.ZENDESK_TOKEN
   jwt_string = jwt.encode(payload, shared_key)
-  #return HttpResponseRedirect("https://" + subdomain + ".zendesk.com/access/jwt?jwt=" + jwt_string)
-  return HttpResponseRedirect("https://kneto.zendesk.com/access/jwt?jwt=" + jwt_string)
+  return HttpResponseRedirect("https://" + subdomain + ".zendesk.com/access/jwt?jwt=" + jwt_string)
